@@ -1,0 +1,69 @@
+
+.titulo {
+  padding: 15px;
+  width: 30vw;
+  margin: auto;
+
+}
+
+.btn {
+  border: 0;
+  color: white;
+  font-weight: bold;
+  background-color: blue;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 0.5em;
+}
+
+.text-input {
+  border-radius: 0.5em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: block;
+  padding: 0.5em;
+  width: 30%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+
+#imagem{
+  background-image: url("./assets/forca.png");
+  width: 234px;
+  height: 272px;
+  background-repeat: no-repeat;
+  
+}
+
+#palavra-secreta{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  margin-top: 30px;
+}
+
+.teclas button{
+  width: 60px;
+  height: 60px;
+  margin: 2px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  box-shadow:  0px 2px 8px rgb(42, 6, 110);
+  border-radius: 5px;
+  border: 1px solid rgb(29, 5, 83);  
+  color: #1a181a;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 900;
+}
