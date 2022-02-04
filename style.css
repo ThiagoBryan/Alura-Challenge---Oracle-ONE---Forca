@@ -3,6 +3,7 @@
   padding: 15px;
   width: 30vw;
   margin: auto;
+  color :rgb(29, 5, 83)
 
 }
 
@@ -10,7 +11,7 @@
   border: 0;
   color: white;
   font-weight: bold;
-  background-color: blue;
+  background-color: rgb(7, 7, 10);
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -19,7 +20,7 @@
 
 .text-input {
   border-radius: 0.5em;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(14, 13, 13, 0.2);
   display: block;
   padding: 0.5em;
   width: 30%;
@@ -53,7 +54,17 @@
   font-size: 1em;
   margin-top: 30px;
 }
-
+.letras{
+  width: 40px;
+  text-align: center;
+  border-bottom: 2px solid #1a021a;
+  color: #ffffff;
+  padding: 2px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-bottom: 40px;
+  font-size: 40px;
+}
 .teclas button{
   width: 60px;
   height: 60px;
@@ -66,4 +77,29 @@
   color: #1a181a;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 900;
+}
+
+ .teclas button:disabled{  /* efeito */
+  cursor: not-allowed;
+}
+
+.teclas button:hover{ /* efeito */
+  transform:scale(1.3);
+}
+
+body{
+  background-color: rgb(10, 158, 84);
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#Mensagem-Final{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 40px;
+  color:rgb(218, 12, 12)
+}
+
+#categoria{
+  color:rgb(2, 4, 10);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 40px;
 }

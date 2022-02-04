@@ -213,7 +213,7 @@ const palavras = [
 
 criarPalavraSecreta(); // criar uma palavra aleatória
 function criarPalavraSecreta(){
-    const indexPalavra = parsetInt(Math.random() * palavras.length); // busca uma palavra aleatória
+    const indexPalavra = parseInt(Math.random() * palavras.length); // busca uma palavra aleatória
 
     palavraSecretaSorteada = palavras[indexPalavra].nome; // busca a palavra na categoria
     palavraSecretaCategoria = palavras[indexPalavra].categoria; // busca na categoria
@@ -221,15 +221,16 @@ function criarPalavraSecreta(){
 
 montarPalavraNaTela() // cria a palavra na tela
 function montarPalavraNaTela(){
-    const categoria = document.getElementById("#categoria"); // pega uma categoria
+    const categoria = document.getElementById("categoria"); // pega uma categoria
     categoria.innerHTML = palavraSecretaCategoria; // busca no HTML a palavra
 
-    const palavraTela = document.getElementById("#palavra-secreta"); // pega uma palavra na categoria
+    const palavraTela = document.getElementById("palavra-secreta"); // pega uma palavra na categoria
     palavraTela.innerHTML = ""; // busca no HTML
 
     for (i = 0; i < palavraSecretaSorteada.length; i++){
-        if(listaDinamica[i] == undefined){ // Se a palavra
-            listaDinamica[i] == "&nbsp;"
+        if(listaDinamica[i] == undefined){ // quando pegar uma palavra aleatória deixa ela indefinida
+            
+            listaDinamica[i] = "&nbsp;"   // espaço em branco
             palavraTela.innerHTML = palavraTela.innerHTML + "<div class = 'letras'>" + listaDinamica[i] + "</div>"
             
         } else{
@@ -237,5 +238,89 @@ function montarPalavraNaTela(){
         }
     }
 }
+
+function verificaLetraEscolhida(letra){
+    document.getElementById("tecla-" + letra).disabled = true; // pega um tecla escolhida no teclado
+    if(tentativas > 0){
+        mudarStyleLetra("tecla-" + letra); // funçao criada na linha 251
+        comparaListas(letra); // função criada na linha 256
+        montarPalavraNaTela(); //funçao criada na linha 222
+    }
+}
+
+function mudarStyleLetra(tecla){ // funçao para mudar estilo do botão e letra escolhida
+    document.getElementById(tecla).style.background = "#000000"; //fundo do botão fica preto
+    document.getElementById(tecla).style.color = "#ffffff"; //letra fica branca
+}
+
+function comparaListas(letra){  
+            // pega a posoção do array
+    const pos = palavraSecretaSorteada.indexOf(letra); 
+    if (pos < 0 ){                                  // se errar a palavra sorteada
+        tentativas--// reduz as tentativas          // carrega a imagem da forca
+        carregaImagemForca();
+
+        if(tentativas == 0){ // se as tentaivas acabarem encerra o jogo e aparece a mensagem
+            document.getElementById("Mensagem-Final").innerHTML = "<span> GAME OVER <br> A palavra correta era </span>" + palavraSecretaSorteada;
+        }
+    }else{
+        for(i = 0; i < palavraSecretaSorteada.length; i++){
+            if(palavraSecretaSorteada[i] == letra){ // se acerta uma letra adiciona essa letra
+                listaDinamica[i] = letra; // se acerta uma letra continua
+            }
+        }
+    }
+
+    let vitoria = true; // variavel para terminar o jogo com vitoria
+    for(i = 0; i < palavraSecretaSorteada.length; i++){
+        if(palavraSecretaSorteada[i] != listaDinamica[i]){ // percorre as palavras de cada array para verificar se são iguais
+            vitoria = false;
+        }
+    }
+     if(vitoria == true){
+        tenativas = 0;
+        document.getElementById("Mensagem-Final").innerHTML = "<span> YOU WIN!!! </span>"
+    }
+}
+
+function carregaImagemForca(){
+    switch(tentativas){ // para fazer as tentativas (acda letra escolhida)
+            case 5: // se errou 1 vez
+                document.getElementById("imagem").style.background = "url('./assets/forca01.png')";
+                break; // encerra um looping
+            case 4: // se errou 2 vezes
+                document.getElementById("imagem").style.background = "url('./assets/forca02.png')";
+                break;
+            case 3: // se errou 3 vezes
+                document.getElementById("imagem").style.background = "url('./assets/forca03.png')";
+                break;
+            case 2: // se errou 4 vezes
+                document.getElementById("imagem").style.background = "url('./assets/forca04.png')";
+                break;
+            case 1: // se errou 5 vezes
+                document.getElementById("imagem").style.background = "url('./assets/forca05.png')";
+                break;
+            case 0: // se errou 6 vezes
+                document.getElementById("imagem").style.background = "url('./assets/forca06.png')";
+                break;
+            default: // quando iniciar um novo jogo
+                document.getElementById("imagem").style.background = "url('./assets/forca.png')";
+                break;        
+        }
+}
+
+let btnReiniciar = document.querySelector("#btnReiniciar");
+btnReiniciar.addEventListener("click", function(){
+    location.reload(); //recarrega a pagina
+});
+
+
+
+
+
+
+
+
+
 
 
