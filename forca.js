@@ -254,7 +254,7 @@ function mudarStyleLetra(tecla){ // funçao para mudar estilo do botão e letra 
 }
 
 function comparaListas(letra){  
-            // pega a posoção do array
+            // pega a posição do array
     const pos = palavraSecretaSorteada.indexOf(letra); 
     if (pos < 0 ){                                  // se errar a palavra sorteada
         tentativas--// reduz as tentativas          // carrega a imagem da forca
@@ -275,11 +275,11 @@ function comparaListas(letra){
     for(i = 0; i < palavraSecretaSorteada.length; i++){
         if(palavraSecretaSorteada[i] != listaDinamica[i]){ // percorre as palavras de cada array para verificar se são iguais
             vitoria = false;
-        }
+        }   
     }
      if(vitoria == true){
-        tenativas = 0;
         document.getElementById("Mensagem-Final").innerHTML = "<span> YOU WIN!!! </span>"
+        tentativas = 0;
     }
 }
 
@@ -329,7 +329,7 @@ let adicionarPalavra = document.querySelector("#nova-palavra");
 
 
 
-console.log(palavras)
+
 
 
 
