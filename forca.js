@@ -314,7 +314,22 @@ btnReiniciar.addEventListener("click", function(){
     location.reload(); //recarrega a pagina
 });
 
+let adicionarPalavra = document.querySelector("#nova-palavra");
+    adicionarPalavra.addEventListener("click", function(e){
+    e.preventDefault();
+    palavras.push({ // para inserir uma nova palavra
+        'nome' : document.getElementById('input-nova-palavra').value,
+        'categoria' : document.getElementById('input-nova-categoria').value,
+    });
+    document.getElementById('input-nova-palavra').value = "";
+    document.getElementById('input-nova-categoria').value = "";
+});
 
+
+
+
+
+console.log(palavras)
 
 
 
