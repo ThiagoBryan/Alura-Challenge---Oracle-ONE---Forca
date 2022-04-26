@@ -154,7 +154,7 @@ const palavras = [
         categoria:"ALIMENTOS"
     },
     palavra038 = {
-        nome: "MASTIGAR",
+        nome: "LASANHA",
         categoria:"ALIMENTOS"
     },
     palavra039 = {
